@@ -42,6 +42,8 @@ def part1(data: list[Point]) -> int:
 def part2(data) -> int:
     """Solve part 2 of the puzzle."""
     # TODO: Implement part 2
+    # 1: naive thing
+    # 2: flip the problem around (rule out all bad rectangles)
     return 0
 
 
