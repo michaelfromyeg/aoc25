@@ -1,0 +1,40 @@
+# pyproject.toml
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aoc25"
+version = "0.1.0"
+requires-python = ">=3.14"
+
+[tool.setuptools.packages.find]
+include = ["shared*", "day*"]
+
+[tool.uv]
+dev-dependencies = [
+    "ruff>=0.8.0",
+    "ty>=0.0.1",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.ty]
+# ty configuration - see https://docs.astral.sh/ty/reference/configuration/
+# Uses default settings for now
