@@ -36,13 +36,14 @@ def part1(points: list[Point]) -> int:
     uf = UnionFind()
     conns = 0
     for d, (p0, p1) in pairwise_dists:
-        if uf.union(p0, p1):
-            conns += 1
-        if conns >= 20 if DEBUG else 1000:
+        uf.union(p0, p1)
+        conns += 1
+        if (conns >= 10) if DEBUG else 1000:
             break
 
     roots = [uf.find(p) for p in points]
     group_counts = Counter(roots)
+    print(group_counts.most_common())
     top_three = [count for _, count in group_counts.most_common(3)]
     return top_three[0] * top_three[1] * top_three[2]
 
