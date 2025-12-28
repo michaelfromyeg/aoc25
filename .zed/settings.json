@@ -1,23 +1,26 @@
 {
-  "languages": {
-    "Python": {
-      "language_servers": ["ty", "!basedpyright", "..."],
-      "formatter": {
-        "external": {
-          "command": "uv",
-          "arguments": ["run", "ruff", "format", "-"]
+    "languages": {
+        "JSON": {
+            "tab_size": 4
+        },
+        "Python": {
+            "language_servers": ["ty", "!basedpyright", "..."],
+            "formatter": {
+                "external": {
+                    "command": "uv",
+                    "arguments": ["run", "ruff", "format", "-"]
+                }
+            },
+            "format_on_save": "on",
+            "tab_size": 4
         }
-      },
-      "format_on_save": "on",
-      "tab_size": 4
+    },
+    "lsp": {
+        "ty": {
+            "binary": {
+                "path": "uv",
+                "arguments": ["run", "ty", "server"]
+            }
+        }
     }
-  },
-  "lsp": {
-    "ty": {
-      "binary": {
-        "path": "uv",
-        "arguments": ["run", "ty", "server"]
-      }
-    }
-  }
 }

@@ -1,8 +1,8 @@
 .PHONY: help setup run lint format typecheck check all clean
 
-# Default target - show help
+# Default target!
 help:
-	@echo "🎄 Advent of Code 2025 - Available Commands"
+	@echo "🎄 Advent of Code"
 	@echo ""
 	@echo "Setup:"
 	@echo "  make setup              Install dependencies and set up the project"
@@ -23,11 +23,9 @@ help:
 	@echo "  make run DAY=08         Run day 8"
 	@echo "  make new-day DAY=04     Create day 4 from template"
 
-# Setup the project
 setup:
 	@bash scripts/setup.sh
 
-# Run a specific day (requires DAY argument)
 run:
 ifndef DAY
 	@echo "Error: DAY argument required"
@@ -36,30 +34,24 @@ ifndef DAY
 endif
 	@uv run python day$(DAY)/main.py
 
-# Lint with ruff
 lint:
-	@echo "🔍 Linting with ruff..."
+	@echo "Linting with ruff..."
 	@uv run ruff check .
 
-# Format with ruff
 format:
-	@echo "✨ Formatting with ruff..."
+	@echo "Formatting with ruff..."
 	@uv run ruff format .
 
-# Type check with ty
 typecheck:
-	@echo "🔬 Type checking with ty..."
+	@echo "Type checking with ty..."
 	@uv run ty check .
 
-# Run lint + typecheck
 check: lint typecheck
 	@echo "✅ All checks passed!"
 
-# Run format + check
 all: format check
 	@echo "✅ Format and checks complete!"
 
-# Clean Python cache files
 clean:
 	@echo "🧹 Cleaning cache files..."
 	@find . -type d -name "__pycache__" -exec rm -rf {} + 2>/dev/null || true
@@ -67,7 +59,6 @@ clean:
 	@find . -type f -name "*.pyo" -delete
 	@echo "✅ Cache cleaned!"
 
-# Create a new day (requires DAY argument)
 new-day:
 ifndef DAY
 	@echo "Error: DAY argument required"
