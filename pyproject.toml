@@ -7,6 +7,9 @@ build-backend = "setuptools.build_meta"
 name = "aoc25"
 version = "0.1.0"
 requires-python = ">=3.14"
+dependencies = [
+    "pulp>=3.3.0",
+]
 
 [tool.setuptools.packages.find]
 include = ["shared*", "day*"]
